@@ -1,0 +1,39 @@
+<div style="text-align: center">
+
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="todolist not-done">
+        <h1>Lista de Tarefas</h1>
+        <br/>
+        <form class="form-inline">
+          <form class="form-inline">
+            <input type="text" class="form-control add-todo" name="item" [(ngModel)]="itemToAdd" placeholder="Nova Tarefa">            
+            <button id="checkAll" class="btn btn-success ml-2" (click)="addToList()" type='reset'>Adicionar</button>
+            <button id="limpar-lista" class="btn btn-danger" (click)="limpaLista()">Limpar Tarefas</button>            
+            </form>
+        </form>
+        <hr>
+        <ul id="sortable" class="list-unstyled">
+          <li class="ui-state-default" *ngFor="let item of todoList; let i = index">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="" (click)="doItem(i)"/>{{item}}</label>
+            </div>
+          </li>
+        </ul>
+        <h2>Concluídos</h2>
+        <ul id="sortable" class="list-unstyled">
+          <li class="ui-state-default" *ngFor="let item of doneList; let i = index">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="" (click)="removeFromDoneList(i)"/>{{item}}</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
